@@ -6,7 +6,7 @@ var questionArray = ["what is the capital of Egypt?", "what is the capital of US
 var answerArray = [["Canberra", "Melbourne", "Cairo", "Darwin"],["Washington DC","California","Florida","New York"]]; 
 var correctAnswer = ["C. Cairo", "A. Washington DC"];
 var questionCounter = 0;
-var selectAnswer;
+var selecterAnswer;
 var theClock;
 var correctTally = 0;
 var incorrectTally = 0;
@@ -28,7 +28,21 @@ $(document).ready(function(){
 			generateHTML();
 			timeWrapper();
 		});
-});
+
+
+		$("body").on("click", ".answer", function(event){
+			// if answer is correct, generatewin else generate loss.
+				selectedAnswer = $(this).text();
+				if(selectedAnswer == correctAnswer[questionCounter]){
+					clearInterval(theClock);
+					generatewin();
+				}
+				else {
+					clearInterval(theClock);
+					generateLoss();
+				}
+		});
+	});
 
 // creat a function to set time to 30 seconds for every quetion.
 		function timeWrapper(){
@@ -68,7 +82,7 @@ $(document).ready(function(){
 		}
 
 		function generateHTML() {
-			gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questionArray[questionCounter] + "</p><p class='first-answer answer'>A. " + answerArray[questionCounter][0] + "</p><p class='answer'>B. "+answerArray[questionCounter][1]+"</p><p class='answer'>C. "+answerArray[questionCounter][2]+"</p><p class='answer'>D. "+answerArray[questionCounter][3]+"</p>";
+			gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questionArray[questionCounter] + "</p><p class='first-answer answer'>A. " + answerArray[questionCounter][0] + "</p><p class='answer'>B. " +answerArray[questionCounter][1]+ "</p><p class='answer'>C. " +answerArray[questionCounter][2]+ "</p><p class='answer'>D. " +answerArray[questionCounter][3] +"</p>";
 			$(".mainArea").html(gameHTML);
 		}
 
