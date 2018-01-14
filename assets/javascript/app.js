@@ -77,15 +77,29 @@ $(document).ready(function(){
 			$(".mainArea").html(gameHTML);
 		}
 
+		// creat a function to question counter.
 
+		function wait() {
+			if (questionCounter < 2) {
+				questionCounter++;
+				generateHTML();
+				counter = 30;
+				timeWrapper();
+			}
+			else {
+				finalScreen();
+			}
+		}
 
+		// creat a function to reset the game.
 
-
-
-
-
-
-
-
-
+		function resetGame() {
+			questionCounter = 0;
+			correctTally = 0;
+			incorrectTally = 0;
+			unansweredTally = 0;
+			counter = 30;
+			generateHTML();
+			timeWrapper();
+		}
 
