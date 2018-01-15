@@ -33,30 +33,25 @@ $(document).ready(function(){
 		$("body").on("click", ".answer", function(event){
 			// if answer is correct, generatewin else generate loss.
 				selectedAnswer = $(this).text();
-				if(selectedAnswer == correctAnswer[questionCounter]){
+				if(selectedAnswer == correctAnswer[questionCounter]) {
+
 					clearInterval(theClock);
 					generatewin();
 				}
 				else {
+
 					clearInterval(theClock);
 					generateLoss();
 				}
 		});
-	});
 
-// creat a function to set time to 30 seconds for every quetion.
-		function timeWrapper(){
-			theClock = setInterval(thirtySeconds, 1000);
-			function thirtySeconds() {
-				if (counter === 0){
-					clearInterval(theClock);
-				}
-				if (counter > 0) {
-					counter--;
-				}
-				$(".timer").html(counter);
-			}
-		}
+		$("body").on("click", ".reset-button", function(event){
+			resetGame();
+
+		});
+
+});
+
 
 // creat a function that generate win, loss, unanswered, generateHTML  and finalScreen.
 
@@ -82,7 +77,12 @@ $(document).ready(function(){
 		}
 
 		function generateHTML() {
-			gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questionArray[questionCounter] + "</p><p class='first-answer answer'>A. " + answerArray[questionCounter][0] + "</p><p class='answer'>B. " +answerArray[questionCounter][1]+ "</p><p class='answer'>C. " +answerArray[questionCounter][2]+ "</p><p class='answer'>D. " +answerArray[questionCounter][3] +"</p>";
+			gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questionArray[questionCounter] +
+			 "</p><p class='first-answer answer'>A. " + answerArray[questionCounter][0] + 
+			"</p><p class='answer'>B. " +answerArray[questionCounter][1]+
+			 "</p><p class='answer'>C. " +answerArray[questionCounter][2]+
+			  "</p><p class='answer'>D. " +answerArray[questionCounter][3] 
+			  +"</p>";
 			$(".mainArea").html(gameHTML);
 		}
 
@@ -91,14 +91,29 @@ $(document).ready(function(){
 			$(".mainArea").html(gameHTML);
 		}
 
+	// creat a function to set time to 30 seconds for every quetion.
+			function timeWrapper(){
+				theClock = setInterval(thirtySeconds, 1000);
+				function thirtySeconds() {
+					if (counter === 0){
+						clearInterval(theClock);
+						generateLossDueToTimeOut();
+					}
+					if (counter > 0) {
+						counter--;
+					}
+					$(".timer").html(counter);
+				}
+			}
+
 		// creat a function to question counter.
 
 		function wait() {
-			if (questionCounter < 2) {
-				questionCounter++;
-				generateHTML();
-				counter = 30;
-				timeWrapper();
+			if (questionCounter < 1) {
+			questionCounter++;
+			generateHTML();
+			counter = 30;
+			timerWrapper();
 			}
 			else {
 				finalScreen();
