@@ -17,7 +17,7 @@ $(document).ready(function(){
 
     // creat a function to intialize and start the screen.
 		function intialScreen (){
-			startScreen = "<p class='text-center main-button-container'><a class='btn btn-primary btn-lg btn-block start-button' href='#' role='button'>Start Button</a></p>";
+			startScreen = "<p class='text-center main-button-container'><a class='btn btn-primary btn-lg btn-block start-button' href='#' role='button'>Start</a></p>";
 			$(".mainArea").html(startScreen);
 		}
 
@@ -26,6 +26,7 @@ $(document).ready(function(){
 		$("body").on("click", ".start-button", function(event){
 			event.preventDefault(); 
 			generateHTML();
+
 			timeWrapper();
 		});
 
@@ -33,10 +34,10 @@ $(document).ready(function(){
 		$("body").on("click", ".answer", function(event){
 			// if answer is correct, generatewin else generate loss.
 				selectedAnswer = $(this).text();
-				if(selectedAnswer == correctAnswer[questionCounter]) {
+				if(selectedAnswer === correctAnswer[questionCounter]) {
 
 					clearInterval(theClock);
-					generatewin();
+					generateWin();
 				}
 				else {
 
@@ -63,10 +64,11 @@ $(document).ready(function(){
 		}
 
 		function generateWin() {
-			correctTally++;
+			
 			gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Correct! The answer is: " + correctAnswer[questionCounter] + "</p>";
 			$(".mainArea").html(gameHTML);
 			setTimeout(wait, 1000 * 3);
+			correctTally++;
 		}
 
 		function generateLoss() {
@@ -113,7 +115,7 @@ $(document).ready(function(){
 			questionCounter++;
 			generateHTML();
 			counter = 30;
-			timerWrapper();
+			timeWrapper();
 			}
 			else {
 				finalScreen();
