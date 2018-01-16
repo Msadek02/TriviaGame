@@ -6,3 +6,9 @@
   background-color: white;
   border-radius: 4px;
 }
+
+.jumbotron {
+  box-sizing: border-box;
+  height: 700px;
+  background-color: lightblue;
+}
