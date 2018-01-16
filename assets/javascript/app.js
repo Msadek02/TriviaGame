@@ -11,6 +11,7 @@ var theClock;
 var correctTally = 0;
 var incorrectTally = 0;
 var unansweredTally = 0;
+var imageArray = ["<img class='center-block img-right' src='assets/images/Egypt.png'>", "<img class='center-block img-right' src='assets/images/USA.png'>"]
 
 
 $(document).ready(function(){
@@ -65,7 +66,7 @@ $(document).ready(function(){
 
 		function generateWin() {
 			
-			gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Correct! The answer is: " + correctAnswer[questionCounter] + "</p>";
+			gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Correct! The answer is: " + correctAnswer[questionCounter] + "</p>" + imageArray[questionCounter];
 			$(".mainArea").html(gameHTML);
 			setTimeout(wait, 1000 * 3);
 			correctTally++;
