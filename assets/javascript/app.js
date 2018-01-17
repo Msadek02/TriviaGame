@@ -59,7 +59,7 @@ $(document).ready(function(){
 
 		function generateLossDueToTimeOut() {
 			unansweredTally++;
-			gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>You ran out of time!  The correct answer was: " + correctAnswer[questionCounter] + "</p>";
+			gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>You ran out of time!  The correct answer was: " + correctAnswer[questionCounter] + "</p>"  + "<img class='center-block img-wrong' src='assets/images/x.png'>";
 			$(".mainArea").html(gameHTML);
 			setTimeout(wait, 1000 * 3); 
 		}
@@ -74,7 +74,7 @@ $(document).ready(function(){
 
 		function generateLoss() {
 			incorrectTally++;
-			gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: "+ correctAnswer[questionCounter] + "</p>";
+			gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: "+ correctAnswer[questionCounter] + "</p>" + "<img class='center-block img-wrong' src='assets/images/x.png'>";
 			$(".mainArea").html(gameHTML);
 			setTimeout(wait, 1000 * 3);
 		}
