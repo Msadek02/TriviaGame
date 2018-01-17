@@ -2,16 +2,16 @@
 var startScreen;
 var gameHTML;
 var counter = 30;
-var questionArray = ["what is the capital of Egypt?", "what is the capital of USA?"];
-var answerArray = [["Canberra", "Melbourne", "Cairo", "Darwin"],["Washington DC","California","Florida","New York"]]; 
-var correctAnswer = ["C. Cairo", "A. Washington DC"];
+var questionArray = ["What is the capital of Egypt?", "What is the capital of USA?", "What is HTML stand for?" ];
+var answerArray = [["Canberra", "Melbourne", "Cairo", "Darwin"],["Washington DC","California","Florida","New York"],["Hyper Text Markup Language","Hyper Text Makeup Language","High Text Markup Language","Hello Text Makeup Language"]]; 
+var correctAnswer = ["C. Cairo", "A. Washington DC", "A. Hyper Text Markup Language"];
 var questionCounter = 0;
 var selecterAnswer;
 var theClock;
 var correctTally = 0;
 var incorrectTally = 0;
 var unansweredTally = 0;
-var imageArray = ["<img class='center-block img-right' src='assets/images/Egypt.png'>", "<img class='center-block img-right' src='assets/images/USA.png'>"]
+var imageArray = ["<img class='center-block img-right' src='assets/images/Egypt.png'>", "<img class='center-block img-right' src='assets/images/USA.png'>", "<img class='center-block img-right' src='assets/images/HTML5.png'>"]
 
 
 $(document).ready(function(){
@@ -112,7 +112,7 @@ $(document).ready(function(){
 		// creat a function to question counter.
 
 		function wait() {
-			if (questionCounter < 1) {
+			if (questionCounter < 2) {
 			questionCounter++;
 			generateHTML();
 			counter = 30;

@@ -9,7 +9,7 @@
 
 .jumbotron {
   box-sizing: border-box;
-  height: 700px;
+  height: 900px;
   background-color: lightblue;
 }
 
@@ -18,4 +18,8 @@
   max-width: 610px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.answer:hover {
+  background: lightgreen;
 }
