@@ -80,12 +80,12 @@ $(document).ready(function(){
 		}
 
 		function generateHTML() {
-			gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questionArray[questionCounter] +
-			 "</p><p class='first-answer answer'>A. " + answerArray[questionCounter][0] + 
-			"</p><p class='answer'>B. " +answerArray[questionCounter][1]+
-			 "</p><p class='answer'>C. " +answerArray[questionCounter][2]+
-			  "</p><p class='answer'>D. " +answerArray[questionCounter][3] 
-			  +"</p>";
+			gameHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><a class='text-center' href="#">" + questionArray[questionCounter] +
+			 "</a><a class='first-answer answer' href="#">A. " + answerArray[questionCounter][0] + 
+			"</a><a class='answer' href="#">B. " +answerArray[questionCounter][1]+
+			 "</a><a class='answer' href="#">C. " +answerArray[questionCounter][2]+
+			  "</a><a class='answer' href="#">D. " +answerArray[questionCounter][3] 
+			  +"</a>";
 			$(".mainArea").html(gameHTML);
 		}
 

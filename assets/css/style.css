@@ -36,3 +36,7 @@ h1.text-center {
 p {
 	font-family: Courier;
 }
+
+.first-answer {
+  margin-top: 40px;
+}
