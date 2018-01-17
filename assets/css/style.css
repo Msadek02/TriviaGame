@@ -3,14 +3,15 @@
   height: 45px;
   color: black;
   padding-left: 14px;
-  background-color: white;
+  background-color: yellow;
   border-radius: 4px;
+  font-family: Courier;
 }
 
 .jumbotron {
   box-sizing: border-box;
   height: 900px;
-  background-color: lightblue;
+  background-color: #25c;
 }
 
 .main-button-container {
@@ -21,5 +22,17 @@
 }
 
 .answer:hover {
-  background: lightgreen;
+  background: white;
+}
+
+h1.text-center {
+	font-family: Courier;
+}
+
+.start-button {
+	font-family: Courier;
+}
+
+p {
+	font-family: Courier;
 }
